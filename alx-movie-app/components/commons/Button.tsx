@@ -1,16 +1,13 @@
 import React from 'react';
+import { ButtonProps } from '@/interfaces';
 
-type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: React.ReactNode;
-};
-
-const Button: React.FC<Props> = ({ children, className = '', ...props }) => {
+const Button: React.FC<ButtonProps> = ({ title, action }) => {
   return (
     <button
-      {...props}
-      className={`px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 focus:outline-none ${className}`}
+      onClick={action}
+      className="px-8 py-2 border-2 border-[#E2D609] rounded-full hover:bg-[#E2D609] hover:text-black transition-colors duration-300"
     >
-      {children}
+      {title}
     </button>
   );
 };
